@@ -5,7 +5,7 @@
 This is the official implementation of the paper: 
 
 ## Abstract
-
+In recent years, Artificial Intelligence has experienced extraordinary growth. A lot of this progress is thanks to the introduction of Transformers and Vision Transformers, which were fundamental for solving Natural Language Processing and Computer Vision tasks respectively. However, the main issue with Vision Transformers concerns computational cost, because, starting from an image divided into patches, for each layer, it is necessary to compute the attention of each patch with respect to all others. For this reason, researchers proposed many solutions that try to reduce the cost of attention layers, using techniques like quantization, knowledge distillation, and manipulation of the input images. In this scenario, we propose a new approach named AgentViT to address the computational load of a Vision Transformer. Specifically, we propose a Reinforcement Learning-based solution that aims to train an agent to select the most important patches in order to improve the learning of a Vision Transformer. Reducing the number of patches processed by a Vision Transformer leads us to reduce its training time while maintaining competitive performance. We tested AgentViT on CIFAR10 in the image classification task and showed that it can achieve promising results against baseline models and similar approaches available in the literature.
 
 
 ## Usage
@@ -19,12 +19,13 @@ In the second cell you need to define the path in which results and models are m
 
 ## Parameters 
 
-Replay Memory Parameters
+### Replay Memory Parameters
 ```
 buffer_size: size of the replay memory;
 buffer_batch_size: number of element randomly sampled from the replay memory;
 ```
-Agent Parameters:
+
+### Agent Parameters:
 ```
 gamma: discount factor which causes rewards to lose their value over time;
 eps_start: initial value of \(\varepsilon\)
@@ -47,7 +48,7 @@ n_patch_selected: how many patches the agent should select;
 > [!IMPORTANT]
 > The agent tries to select a number of patches equal to n_patch_selected. However, in some cases it will select a larger or smaller number based on the batch of input images. The number of patches selected depends on the weight given to the two parameters time_weight and loss_weight.
 
-ViT Parameters:
+### ViT Parameters:
 ```
 patch: number of patches 
 att_dim: dimension of the attention layers
