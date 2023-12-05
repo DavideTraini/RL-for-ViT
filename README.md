@@ -19,42 +19,50 @@ In the second cell you need to define the path in which results and models are m
 
 ## Parameters 
 
+
 ### Replay Memory Parameters:
-```
-buffer_size: size of the replay memory;
-buffer_batch_size: number of element randomly sampled from the replay memory;
-```
+**`buffer_size`**: size of the replay memory;  
+**`buffer_batch_size`**: number of element randomly sampled from the replay memory;
+
 
 ### Agent Parameters:
-```
-gamma: discount factor which causes rewards to lose their value over time;
-eps_start: initial value of epsilon;
-eps_end: ending value of epsilon;
-eps_decay: decay factor of epsilon (the value of epsilon decays exponentially during epochs);
+**`gamma`**: discount factor which causes rewards to lose their value over time;  
+**`eps_start`**: initial value of epsilon;  
+**`eps_end`**: ending value of epsilon;  
+**`eps_decay`**: decay factor of epsilon (the value of epsilon decays exponentially during epochs);  
 
-lr: learning rate of the Agent Network;
+**`lr`**: learning rate of the Agent Network;  
 
-tau: soft update coefficient;
-update_every: how often run the soft update process;
+**`tau`**: soft update coefficient;  
+**`update_every`**: how often run the soft update process;  
 
-get_reward_every: how often the agent receives a reward and optimizes itself;
+**`get_reward_every`**: how often the agent receives a reward and optimizes itself;  
 
-time_weight: weights the number of patches selected by the agent;
-loss_weight: weights the loss gain compared to the first iteration;
+**`time_weight`**: weights the number of patches selected by the agent;  
+**`loss_weight`**: weights the loss gain compared to the first iteration;  
 
-n_patch_selected: how many patches the agent should select;
-```
+**`n_patch_selected`**: how many patches the agent should select;  
 
 > [!IMPORTANT]
 > The agent tries to select a number of patches equal to n_patch_selected. However, in some cases it will select a larger or smaller number based on the batch of input images. The number of patches selected depends on the weight given to the two parameters time_weight and loss_weight.
 
 ### ViT Parameters:
-```
-patch: number of patches;
-att_dim: dimension of the attention layers;
-epoche = training epochs;
-learning_rate = learning rate of the SimpleViT;
-```
+**`patch`**: number of patches;  
+**`att_dim`**: dimension of the attention layers;  
+**`epoche`**: training epochs;  
+**`learning_rate`**: learning rate of the SimpleViT;  
 
 
 ## Requirements <a name="requirements"></a>
+
+In our notebook we used the following libraries:
+```
+torch==2.1.0  
+torchvision=0.16.0  
+sklearn=1.2.2  
+einops=0.7.0  
+gym=0.25.2  
+numpy=1.23.5  
+pandas=1.5.3  
+matplotlib=3.7.1  
+```
