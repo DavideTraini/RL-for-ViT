@@ -2,11 +2,10 @@
 
 
 
-This is the official implementation of the paper: 
+This is the official implementation of the paper: Adaptive Patch Selection to Improve Vision Transformers through Reinforcement Learning
 
 ## Abstract
-In recent years, Artificial Intelligence has experienced extraordinary growth. A lot of this progress is thanks to the introduction of Transformers and Vision Transformers (ViT), which are fundamental for solving Natural Language Processing and Computer Vision tasks respectively. However, one issue with ViTs concerns computational cost, because, starting from an image divided into patches, for each layer, it is necessary to compute the attention of each patch with respect to all others. For this reason, researchers proposed many solutions that try to reduce the cost of attention layers, using techniques like quantization, knowledge distillation, and manipulation of the input images. In this scenario, we propose a new approach named AgentViT to address the computational cost of a ViT. Specifically, we propose a Reinforcement Learning-based solution that aims to train an agent to select the most important patches in order to improve the learning of a ViT. Reducing the number of patches processed by a ViT leads to the reduction of its training time while maintaining competitive performance. We tested AgentViT on CIFAR10 in the image classification task and showed its promising performance against baseline ViTs and similar approaches available in the literature.
-
+In recent years, Transformers have been revolutionizing the management of Natural Language Processing tasks, and Vision Transformers (ViTs) promise to do the same for Computer Vision ones. However, the adoption of ViTs is held back by their computational cost. Indeed, starting from an image divided into patches, for each layer it is necessary to compute the attention of each patch with respect to all the others. Researchers have proposed many solutions that aim to reduce the computational cost of attention layers by adopting techniques such as quantization, knowledge distillation and manipulation of input images. In this paper, we aim to make a contribution to address this issue. In particular, we propose a new framework, called AgentViT, which uses Reinforcement Learning for training an agent that selects the most important patches for the learning of a ViT. The goal of AgentViT is to reduce the number of patches processed by a ViT, and thus its training time, while still maintaining competitive performance. We tested AgentViT on CIFAR10 in the image classification task and obtained promising performance if compared to baseline ViTs and other related approaches available in the literature.
 
 ## Usage
 
@@ -31,24 +30,26 @@ In the second cell you need to define the path in which results and models are m
 **`eps_end`**: ending value of epsilon;  
 **`eps_decay`**: decay factor of epsilon (the value of epsilon decays exponentially during epochs);  
 
-**`lr`**: learning rate of the Agent Network;  
+**`eta`**: learning rate of the Agent Network;  
 
 **`tau`**: soft update coefficient;  
 **`update_every`**: how often run the soft update process;  
 
-**`get_reward_every`**: how often the agent receives a reward and optimizes itself;  
+**`frequency`**: how often the agent receives a reward and optimizes itself;  
 
-**`time_weight`**: weights the number of patches selected by the agent;  
-**`loss_weight`**: weights the loss gain compared to the first iteration;  
+**`alpha`**: weight of the reward related to training loss against the number of patches selected;   
 
-**`n_patch_selected`**: how many patches the agent should select;  
+**`n_patch_desired`**: how many patches the agent should select;  
 
 > [!IMPORTANT]
 > The agent tries to select a number of patches equal to n_patch_selected. However, in some cases it will select a larger or smaller number based on the batch of input images. The number of patches selected depends on the weight given to the two parameters time_weight and loss_weight.
 
 ### ViT Parameters:
-**`patch`**: number of patches;  
-**`att_dim`**: dimension of the attention layers;  
+**`patch_size`**: dimension of patches;  
+**`att_dim`**: dimension of the embedding;  
+**`depth`**: number of transformer layers;  
+**`heads`**: number of multi attention heads; 
+**`mlp_dim`**: dimension of the multi layer perceptron layer;  
 **`epoche`**: training epochs;  
 **`learning_rate`**: learning rate of the SimpleViT;  
 
