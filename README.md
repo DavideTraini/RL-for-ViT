@@ -48,7 +48,7 @@ In the second cell you need to define the path in which results and models are m
 **`patch_size`**: dimension of patches;  
 **`att_dim`**: dimension of the embedding;  
 **`depth`**: number of transformer layers;  
-**`heads`**: number of multi attention heads; 
+**`heads`**: number of multi attention heads;  
 **`mlp_dim`**: dimension of the multi layer perceptron layer;  
 **`epoche`**: training epochs;  
 **`learning_rate`**: learning rate of the SimpleViT;  
