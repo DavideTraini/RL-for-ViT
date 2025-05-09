@@ -4,6 +4,19 @@
 
 This is the official implementation of the paper: Adaptive Patch Selection to Improve Vision Transformers through Reinforcement Learning
 
+
+@article{cauteruccio2025adaptive,  
+  title={Adaptive patch selection to improve Vision Transformers through Reinforcement Learning},  
+  author={Cauteruccio, Francesco and Marchetti, Michele and Traini, Davide and Ursino, Domenico and Virgili, Luca},  
+  journal={Applied Intelligence},  
+  volume={55},  
+  number={7},  
+  pages={1--26},  
+  year={2025},  
+  publisher={Springer}  
+} 
+
+
 ## Abstract
 In recent years, Transformers have been revolutionizing the management of Natural Language Processing tasks, and Vision Transformers (ViTs) promise to do the same for Computer Vision ones. However, the adoption of ViTs is held back by their computational cost. Indeed, starting from an image divided into patches, for each layer it is necessary to compute the attention of each patch with respect to all the others. Researchers have proposed many solutions that aim to reduce the computational cost of attention layers by adopting techniques such as quantization, knowledge distillation and manipulation of input images. In this paper, we aim to make a contribution to address this issue. In particular, we propose a new framework, called AgentViT, which uses Reinforcement Learning for training an agent that selects the most important patches for the learning of a ViT. The goal of AgentViT is to reduce the number of patches processed by a ViT, and thus its training time, while still maintaining competitive performance. We tested AgentViT on CIFAR10 in the image classification task and obtained promising performance if compared to baseline ViTs and other related approaches available in the literature.
 
